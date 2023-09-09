@@ -2,6 +2,8 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+import {RFValue} from 'react-native-responsive-fontsize';
+
 import ArrowBack from '../../assets/svgs/ArrowBack';
 
 export default function HeaderWithBackIcon(props) {
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 17,
+    fontSize: RFValue(17),
     textAlign: 'center',
     width: '70%',
     fontWeight: '400',

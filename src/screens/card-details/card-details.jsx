@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
+
 import Button from '../../components/button/button';
 import HeaderWithBackIcon from '../../components/header-with-back-icon/header-with-back-icon';
 import CustomTextInput from '../../components/input/input';
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   cardDetails: {
-    fontSize: 20,
+    fontSize: RFValue(20),
     color: '#fff',
   },
   btn: {marginTop: 50},

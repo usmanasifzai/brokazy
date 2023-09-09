@@ -3,8 +3,10 @@ import React from 'react';
 import Modal from 'react-native-modal';
 import {Text, StyleSheet, View, TouchableWithoutFeedback} from 'react-native';
 import {Avatar} from 'react-native-paper';
-import DrawerRow from '../components/drawer-row/drawer-row';
 import {useNavigation} from '@react-navigation/native';
+import {RFValue} from 'react-native-responsive-fontsize';
+
+import DrawerRow from '../components/drawer-row/drawer-row';
 
 const DrawerNavigation = ({isVisible, setIsVisible}) => {
   const navigation = useNavigation();
@@ -84,27 +86,27 @@ const styles = StyleSheet.create({
   },
   text1: {
     color: '#ebebf0',
-    fontSize: 22,
+    fontSize: RFValue(22),
     marginBottom: 5,
     fontWeight: '700',
   },
   text2: {
     color: '#ebebf0',
-    fontSize: 16,
+    fontSize: RFValue(16),
     marginBottom: 5,
   },
   text3: {
     color: '#bcbcbc',
-    fontSize: 14,
+    fontSize: RFValue(14),
   },
   text4: {
     fontWeight: '700',
     color: '#ebebf0',
-    fontSize: 16,
+    fontSize: RFValue(16),
   },
   dot: {
     color: '#bcbcbc',
-    fontSize: 4,
+    fontSize: RFValue(4),
   },
   view1: {
     flex: 1,

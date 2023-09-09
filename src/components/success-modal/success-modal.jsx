@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
-
+import {RFValue} from 'react-native-responsive-fontsize';
 import Lottie from 'lottie-react-native';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../button/button';
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'black',
-    fontSize: 15,
+    fontSize: RFValue(15),
     fontWeight: '700',
   },
   lottie: {
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   img: {width: 100, height: 100},
   text: {
-    fontSize: 14,
+    fontSize: RFValue(14),
     color: 'black',
   },
 });

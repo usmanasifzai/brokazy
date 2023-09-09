@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {RFValue} from 'react-native-responsive-fontsize';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
   textHeading: {
     color: '#fff',
     fontWeight: '700',
-    fontSize: 20,
+    fontSize: RFValue(20),
     marginBottom: 10,
   },
   checkbox: {flexDirection: 'row', marginTop: 10, justifyContent: 'center'},

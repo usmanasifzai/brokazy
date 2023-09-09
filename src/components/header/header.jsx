@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import {Avatar} from 'react-native-paper';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const Header = ({setIsVisible, isVisible}) => {
   return (
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 15,
+    fontSize: RFValue(15),
     fontWeight: '700',
     color: '#fff',
     justifyContent: 'center',

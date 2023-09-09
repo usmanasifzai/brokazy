@@ -1,8 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+
 import CheckBox from '../checkbox/checkbox';
 
 export default function PlanCard({plan, index, activeTextBox}) {
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
   textHeading: {
     color: '#fff',
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: RFValue(20),
   },
   checkbox: {flexDirection: 'row', marginTop: 10},
 });

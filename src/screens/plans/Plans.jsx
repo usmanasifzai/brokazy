@@ -6,6 +6,8 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
+
 import Button from '../../components/button/button';
 import HeaderWithBackIcon from '../../components/header-with-back-icon/header-with-back-icon';
 import PlanCard from '../../components/plan-card/plan-card';
@@ -152,15 +154,15 @@ const styles = StyleSheet.create({
   text1: {
     marginLeft: 10,
     color: '#fff',
-    fontSize: 20,
+    fontSize: RFValue(20),
     textAlign: 'center',
   },
   title: {
     color: '#fff',
     marginTop: 20,
-    fontSize: 30,
+    fontSize: RFValue(30),
     fontWeight: '700',
   },
   date: {marginLeft: 10, color: 'orange'},
-  text2: {color: '#fff', fontSize: 18},
+  text2: {color: '#fff', fontSize: RFValue(18)},
 });
