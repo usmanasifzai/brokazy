@@ -11,16 +11,13 @@ import {
 } from 'react-native';
 import CreditCardIcon from 'react-native-vector-icons/AntDesign';
 import PayPalIcon from 'react-native-vector-icons/FontAwesome';
-import {useNavigation} from '@react-navigation/native';
 
 const isPortrait = () => {
   const dim = Dimensions.get('screen');
   return dim.height >= dim.width;
 };
 
-function CustomModal({modal, setModal}) {
-  const navigation = useNavigation();
-
+function CustomModal({modal, setModal, navigation}) {
   return (
     <Modal
       onRequestClose={() => setModal(false)}

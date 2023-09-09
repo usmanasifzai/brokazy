@@ -19,7 +19,12 @@ import CheckBox from '../checkbox/checkbox';
 import Button from '../button/button';
 import CustomModal from '../payment-modal/payment-modal';
 
-const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
+const PlanModal = ({
+  modalVisible,
+  setModalVisible,
+  planDetails,
+  navigation,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -87,6 +92,7 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
               </View>
               <View style={{marginTop: 40}}>
                 <TouchableOpacity
+                  testID="SUBSCRIBE"
                   onPress={() => {
                     setIsVisible(true);
                     setModalVisible(false);
@@ -98,7 +104,11 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
           </View>
         </ScrollView>
       </Modal>
-      <CustomModal modal={isVisible} setModal={setIsVisible} />
+      <CustomModal
+        modal={isVisible}
+        setModal={setIsVisible}
+        navigation={navigation}
+      />
     </View>
   );
 };

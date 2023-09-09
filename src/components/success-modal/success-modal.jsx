@@ -2,12 +2,9 @@ import React from 'react';
 import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import Lottie from 'lottie-react-native';
-import {useNavigation} from '@react-navigation/native';
 import Button from '../button/button';
 
-export default function SuccessModal({modalVisible, closeModal}) {
-  const navigation = useNavigation();
-
+export default function SuccessModal({modalVisible, closeModal, navigation}) {
   return (
     <View style={styles.container}>
       <Modal
@@ -43,7 +40,8 @@ export default function SuccessModal({modalVisible, closeModal}) {
               onPress={() => {
                 closeModal(false);
                 navigation.navigate('Home');
-              }}>
+              }}
+              testID="BUTTON">
               <Button text={'CONTINUE'} />
             </TouchableOpacity>
           </View>

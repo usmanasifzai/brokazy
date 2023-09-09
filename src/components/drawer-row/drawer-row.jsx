@@ -30,6 +30,7 @@ const DrawerRow = ({name, text, onClick = () => {}}) => {
       <View>
         {name === 'notifications' && (
           <Switch
+            testID="switch"
             trackColor={{false: '#767577', true: '#34c759'}}
             thumbColor={isEnabled ? 'white' : '#f4f3f4'}
             ios_backgroundColor="#3e3e3e"

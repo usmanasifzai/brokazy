@@ -1,21 +1,18 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 import ArrowBack from '../../assets/svgs/ArrowBack';
 
 export default function HeaderWithBackIcon(props) {
-  const navigations = useNavigation();
-
   return (
     <View style={styles.view}>
       <View style={styles.header}>
         <TouchableRipple
           borderless
           style={styles.ripple}
-          onPress={() => navigations.goBack()}
+          onPress={() => props.navigations.goBack()}
           rippleColor={'#8493AE20'}>
           <ArrowBack fill={'white'} />
         </TouchableRipple>

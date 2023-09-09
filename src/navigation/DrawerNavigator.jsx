@@ -9,13 +9,11 @@ import {
   ScrollView,
 } from 'react-native';
 import {Avatar} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 import DrawerRow from '../components/drawer-row/drawer-row';
 
-const DrawerNavigation = ({isVisible, setIsVisible}) => {
-  const navigation = useNavigation();
+const DrawerNavigation = ({isVisible, setIsVisible, navigation}) => {
   return (
     <Modal
       style={styles.modal}
@@ -30,6 +28,7 @@ const DrawerNavigation = ({isVisible, setIsVisible}) => {
             <Avatar.Image
               size={60}
               source={require('../assets/images/avatar.jpeg')}
+              testID={'avatar1'}
             />
           </TouchableOpacity>
           <View style={styles.col}>

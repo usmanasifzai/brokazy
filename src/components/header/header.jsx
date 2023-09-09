@@ -12,6 +12,7 @@ const Header = ({setIsVisible, isVisible}) => {
           size={50}
           source={require('../../assets/images/avatar.jpeg')}
           color="black"
+          testID={'avatar'}
         />
       </TouchableOpacity>
       <SearchBar

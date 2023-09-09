@@ -18,7 +18,7 @@ import Achievement from '../../assets/svgs/achievement';
 import PlanModal from '../../components/plan-modal/plan-modal';
 import CustomModal from '../../components/payment-modal/payment-modal';
 
-const Plans = () => {
+const Plans = ({navigation}) => {
   const [modal, setModal] = useState(false);
   const [activeTextBox, setActiveTextBox] = useState(-1);
   const [modalVisible, setModalVisible] = useState(false);
@@ -63,6 +63,7 @@ const Plans = () => {
               plan?.map((p, index) => {
                 return (
                   <TouchableOpacity
+                    testID={`plan-card${index}`}
                     key={index}
                     style={{marginTop: 50}}
                     onPress={() => {
@@ -89,13 +90,18 @@ const Plans = () => {
                 <Button text="ACTIVATE/UPDATE PLAN" />
               </TouchableOpacity>
             </View>
-            <CustomModal modal={modal} setModal={setModal} />
+            <CustomModal
+              modal={modal}
+              setModal={setModal}
+              navigation={navigation}
+            />
           </View>
         </View>
         <PlanModal
           setModalVisible={setModalVisible}
           modalVisible={modalVisible}
           planDetails={plan[activeTextBox]}
+          navigation={navigation}
         />
       </ScrollView>
     </>

@@ -5,11 +5,15 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import Header from '../../components/header/header';
 import DrawerNavigation from '../../navigation/DrawerNavigator';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <>
-      <DrawerNavigation setIsVisible={setIsVisible} isVisible={isVisible} />
+      <DrawerNavigation
+        setIsVisible={setIsVisible}
+        isVisible={isVisible}
+        navigation={navigation}
+      />
       <Header setIsVisible={setIsVisible} isVisible={isVisible} />
       <View style={styles.view1}>
         <Text style={styles.title}>BROKAZY</Text>

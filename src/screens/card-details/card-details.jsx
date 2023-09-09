@@ -13,11 +13,11 @@ import HeaderWithBackIcon from '../../components/header-with-back-icon/header-wi
 import CustomTextInput from '../../components/input/input';
 import SuccessModal from '../../components/success-modal/success-modal';
 
-const CardDetails = () => {
+const CardDetails = ({navigation}) => {
   const [modalVisible, setIsModalVisible] = useState(false);
   return (
     <>
-      <HeaderWithBackIcon title={'Payment'} />
+      <HeaderWithBackIcon title={'Payment'} navigation={navigation} />
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
           <View>
@@ -29,7 +29,8 @@ const CardDetails = () => {
           </View>
           <TouchableOpacity
             style={styles.btn}
-            onPress={() => setIsModalVisible(true)}>
+            onPress={() => setIsModalVisible(!modalVisible)}
+            testID="CONTINUE">
             <Button text={'CONTINUE'} />
           </TouchableOpacity>
         </View>
@@ -37,6 +38,7 @@ const CardDetails = () => {
       <SuccessModal
         closeModal={setIsModalVisible}
         modalVisible={modalVisible}
+        navigation={navigation}
       />
     </>
   );
