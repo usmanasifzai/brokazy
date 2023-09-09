@@ -22,7 +22,7 @@ export default function SuccessModal({modalVisible, closeModal}) {
             <Lottie
               source={require('../../assets/svgs/lottie.json')}
               autoPlay={true}
-              duration={1000}
+              duration={2000}
               style={styles.img}
               loop={false}
               autoSize={true}
