@@ -20,7 +20,7 @@ import CustomModal from '../../components/payment-modal/payment-modal';
 
 const Plans = () => {
   const [modal, setModal] = useState(false);
-  const [activeTextBox, setActiveTextBox] = useState(null);
+  const [activeTextBox, setActiveTextBox] = useState(-1);
   const [modalVisible, setModalVisible] = useState(false);
 
   const [plan, setPlans] = useState([]);
@@ -28,13 +28,9 @@ const Plans = () => {
   useEffect(() => {
     setPlans(plans.plans);
   }, []);
+
   return (
     <>
-      <PlanModal
-        setModalVisible={setModalVisible}
-        modalVisible={modalVisible}
-        planDetails={plan[activeTextBox]}
-      />
       <HeaderWithBackIcon title="Subscriptions Plans" />
       <ScrollView>
         <View style={styles.container}>
@@ -63,24 +59,28 @@ const Plans = () => {
           </View>
 
           <View style={{padding: 10}}>
-            {plan?.map((p, index) => {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  style={{marginTop: 50}}
-                  onPress={() => {
-                    setActiveTextBox(index);
-                    setModalVisible(true);
-                  }}
-                  activeOpacity={1}>
-                  <PlanCard
-                    plan={p}
-                    index={index}
-                    activeTextBox={activeTextBox}
-                  />
-                </TouchableOpacity>
-              );
-            })}
+            {plan?.length > 0 ? (
+              plan?.map((p, index) => {
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={{marginTop: 50}}
+                    onPress={() => {
+                      setActiveTextBox(index);
+                      setModalVisible(true);
+                    }}
+                    activeOpacity={1}>
+                    <PlanCard
+                      plan={p}
+                      index={index}
+                      activeTextBox={activeTextBox}
+                    />
+                  </TouchableOpacity>
+                );
+              })
+            ) : (
+              <Text style={styles.text3}>No Plan Found</Text>
+            )}
             <View style={{marginTop: 50}}>
               <TouchableOpacity
                 disabled={activeTextBox < 0}
@@ -92,6 +92,11 @@ const Plans = () => {
             <CustomModal modal={modal} setModal={setModal} />
           </View>
         </View>
+        <PlanModal
+          setModalVisible={setModalVisible}
+          modalVisible={modalVisible}
+          planDetails={plan[activeTextBox]}
+        />
       </ScrollView>
     </>
   );
@@ -165,4 +170,10 @@ const styles = StyleSheet.create({
   },
   date: {marginLeft: 10, color: 'orange'},
   text2: {color: '#fff', fontSize: RFValue(18)},
+  text3: {
+    color: '#fff',
+    fontSize: RFValue(14),
+    marginTop: 20,
+    textAlign: 'center',
+  },
 });
