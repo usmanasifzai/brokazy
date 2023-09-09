@@ -1,0 +1,22 @@
+{
+  "plans": [
+    {
+      "id": 0,
+      "type": "Basic",
+      "price": "112",
+      "duration": "6 months"
+    },
+    {
+      "id": 1,
+      "type": "Standard",
+      "price": "112",
+      "duration": "6 months"
+    },
+    {
+      "id": 2,
+      "type": "Premium",
+      "price": "112",
+      "duration": "6 months"
+    }
+  ]
+}
