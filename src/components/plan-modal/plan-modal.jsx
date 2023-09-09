@@ -43,7 +43,7 @@ const PlanModal = ({
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={scrollView}>
           <TouchableWithoutFeedback
             onPress={() => setModalVisible(!modalVisible)}>
             <View style={styles.modalOverlay} />
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
+  scrollView: {flexGrow: 1},
 });
 
 export default PlanModal;

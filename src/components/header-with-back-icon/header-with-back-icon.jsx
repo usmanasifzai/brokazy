@@ -5,18 +5,18 @@ import {RFValue} from 'react-native-responsive-fontsize';
 
 import ArrowBack from '../../assets/svgs/ArrowBack';
 
-export default function HeaderWithBackIcon(props) {
+export default function HeaderWithBackIcon({title, navigation}) {
   return (
     <View style={styles.view}>
       <View style={styles.header}>
         <TouchableRipple
           borderless
           style={styles.ripple}
-          onPress={() => props.navigations.goBack()}
+          onPress={() => navigation.goBack()}
           rippleColor={'#8493AE20'}>
           <ArrowBack fill={'white'} />
         </TouchableRipple>
-        <Text style={[styles.title]}>{props.title}</Text>
+        <Text style={[styles.title]}>{title}</Text>
       </View>
     </View>
   );
