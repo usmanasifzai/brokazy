@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
 
     backgroundColor: 'transparent',
 
-    height: Dimensions.get('window').height * 0.4,
-    maxHeight: Dimensions.get('window').height * 0.4,
+    height: Dimensions.get('window').height * 0.35,
+    maxHeight: Dimensions.get('window').height * 0.35,
     shadowOffset: {
       height: 5,
       width: 5,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   div2: {
     backgroundColor: 'black',
     borderRadius: 10,
-    marginTop: 60,
+    marginTop: 20,
   },
   innerView: {
     flexDirection: 'row',
