@@ -6,6 +6,7 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import CreditCardIcon from 'react-native-vector-icons/AntDesign';
 import PayPalIcon from 'react-native-vector-icons/FontAwesome';
@@ -20,6 +21,9 @@ function CustomModal({modal, setModal}) {
       animationType="slide"
       transparent={true}
       visible={modal}>
+      <TouchableWithoutFeedback onPress={() => setModal(!modal)}>
+        <View style={styles.modalOverlay} />
+      </TouchableWithoutFeedback>
       <View style={styles.screenContainer}>
         <View style={styles.container}>
           <View style={styles.div1}>
@@ -105,6 +109,14 @@ const styles = StyleSheet.create({
   },
   paymentText: {color: '#fff', marginLeft: 10},
   creditCard: {borderBottomWidth: 1, borderBottomColor: '#fff'},
+  modalOverlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
 });
 
 export default CustomModal;
