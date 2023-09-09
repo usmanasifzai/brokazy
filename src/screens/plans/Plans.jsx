@@ -83,7 +83,7 @@ const Plans = () => {
             })}
             <View style={{marginTop: 50}}>
               <TouchableOpacity
-                disabled={!activeTextBox}
+                disabled={activeTextBox < 0}
                 style={styles.btn}
                 onPress={() => setModal(!modal)}>
                 <Button text="ACTIVATE/UPDATE PLAN" />

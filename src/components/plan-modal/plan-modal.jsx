@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -10,15 +10,17 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {RFValue} from 'react-native-responsive-fontsize';
+
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import CheckBox from '../checkbox/checkbox';
 import Button from '../button/button';
-import {useNavigation} from '@react-navigation/native';
+import CustomModal from '../payment-modal/payment-modal';
 
 const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
-  const navigation = useNavigation();
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -78,7 +80,7 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
               <TouchableOpacity
                 onPress={() => {
                   setModalVisible(false);
-                  navigation.navigate('CardDetails');
+                  setIsVisible(true);
                 }}>
                 <Button text={'SUBSCRIBE'} />
               </TouchableOpacity>
@@ -86,6 +88,7 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
           </View>
         </View>
       </Modal>
+      <CustomModal modal={isVisible} setModal={setIsVisible} />
     </View>
   );
 };
