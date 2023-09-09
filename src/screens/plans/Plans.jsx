@@ -31,7 +31,7 @@ const Plans = ({navigation}) => {
 
   return (
     <>
-      <HeaderWithBackIcon title="Subscriptions Plans" />
+      <HeaderWithBackIcon title="Subscriptions Plans" navigation={navigation} />
       <ScrollView>
         <View style={styles.container}>
           <View style={[styles.center, {marginTop: 50}]}>
