@@ -27,6 +27,13 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
+        supportedOrientations={[
+          'portrait',
+          'portrait-upside-down',
+          'landscape',
+          'landscape-left',
+          'landscape-right',
+        ]}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}>
@@ -79,8 +86,8 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
             <View style={{marginTop: 40}}>
               <TouchableOpacity
                 onPress={() => {
-                  setModalVisible(false);
                   setIsVisible(true);
+                  setModalVisible(false);
                 }}>
                 <Button text={'SUBSCRIBE'} />
               </TouchableOpacity>

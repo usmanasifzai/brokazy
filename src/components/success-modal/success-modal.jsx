@@ -14,6 +14,13 @@ export default function SuccessModal({modalVisible, closeModal}) {
         transparent={true}
         animationType="slide"
         visible={modalVisible}
+        supportedOrientations={[
+          'portrait',
+          'portrait-upside-down',
+          'landscape',
+          'landscape-left',
+          'landscape-right',
+        ]}
         onRequestClose={closeModal}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>

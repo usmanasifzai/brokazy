@@ -7,10 +7,16 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 import CreditCardIcon from 'react-native-vector-icons/AntDesign';
 import PayPalIcon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+
+const isPortrait = () => {
+  const dim = Dimensions.get('screen');
+  return dim.height >= dim.width;
+};
 
 function CustomModal({modal, setModal}) {
   const navigation = useNavigation();
@@ -20,6 +26,13 @@ function CustomModal({modal, setModal}) {
       onRequestClose={() => setModal(false)}
       animationType="slide"
       transparent={true}
+      supportedOrientations={[
+        'portrait',
+        'portrait-upside-down',
+        'landscape',
+        'landscape-left',
+        'landscape-right',
+      ]}
       visible={modal}>
       <TouchableWithoutFeedback onPress={() => setModal(!modal)}>
         <View style={styles.modalOverlay} />
@@ -72,8 +85,12 @@ const styles = StyleSheet.create({
 
     backgroundColor: 'transparent',
 
-    height: Dimensions.get('window').height * 0.35,
-    maxHeight: Dimensions.get('window').height * 0.35,
+    height: isPortrait()
+      ? Dimensions.get('window').height * 0.35
+      : Dimensions.get('window').height * 0.6,
+    maxHeight: isPortrait()
+      ? Dimensions.get('window').height * 0.35
+      : Dimensions.get('window').height * 0.6,
     shadowOffset: {
       height: 5,
       width: 5,
