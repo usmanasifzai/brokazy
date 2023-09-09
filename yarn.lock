@@ -5055,6 +5055,13 @@ metro-minify-terser@0.76.8:
   dependencies:
     terser "^5.15.0"
 
+metro-minify-terser@^0.79.0:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/metro-minify-terser/-/metro-minify-terser-0.79.0.tgz#2763ccc5f90dda94a649d4dcf6a8cd193fa1ae8b"
+  integrity sha512-7VYxy/wAHtuVz3RXAiyMvP6Qp6BGR+Ibl0FI4Ky/s4aMFUB0nW/uQuH1rH0fJMR5WxCmt4qAA4+uW2rZguIvVw==
+  dependencies:
+    terser "^5.15.0"
+
 metro-minify-uglify@0.76.7:
   version "0.76.7"
   resolved "https://registry.yarnpkg.com/metro-minify-uglify/-/metro-minify-uglify-0.76.7.tgz#3e0143786718dcaea4e28a724698d4f8ac199a43"
