@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 import Button from '../../components/button/button';
@@ -12,20 +18,22 @@ const CardDetails = () => {
   return (
     <>
       <HeaderWithBackIcon title={'Payment'} />
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.cardDetails}>CARD DETAILS</Text>
-          <CustomTextInput placeholder={'CARD NUMBER'} />
-          <CustomTextInput placeholder={'EXPIRY DATE'} />
-          <CustomTextInput placeholder={'CVV SECURITY CODE'} />
-          <CustomTextInput placeholder={'CARD HOLDER NAME'} />
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            <Text style={styles.cardDetails}>CARD DETAILS</Text>
+            <CustomTextInput placeholder={'CARD NUMBER'} />
+            <CustomTextInput placeholder={'EXPIRY DATE'} />
+            <CustomTextInput placeholder={'CVV SECURITY CODE'} />
+            <CustomTextInput placeholder={'CARD HOLDER NAME'} />
+          </View>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => setIsModalVisible(true)}>
+            <Button text={'CONTINUE'} />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() => setIsModalVisible(true)}>
-          <Button text={'CONTINUE'} />
-        </TouchableOpacity>
-      </View>
+      </ScrollView>
       <SuccessModal
         closeModal={setIsModalVisible}
         modalVisible={modalVisible}
