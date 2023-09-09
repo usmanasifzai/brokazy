@@ -28,7 +28,9 @@ export default function SuccessModal({modalVisible, closeModal}) {
               autoSize={true}
             />
 
-            <Text>Congratulation, your payment received</Text>
+            <Text style={styles.text}>
+              Congratulation, your payment received
+            </Text>
             <TouchableOpacity
               style={{width: '100%'}}
               onPress={() => {
@@ -67,6 +69,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   title: {
+    color: 'black',
     fontSize: 15,
     fontWeight: '700',
   },
@@ -80,4 +83,8 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   img: {width: 100, height: 100},
+  text: {
+    fontSize: 14,
+    color: 'black',
+  },
 });
