@@ -7,6 +7,7 @@ import {
   Pressable,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -37,63 +38,65 @@ const PlanModal = ({modalVisible, setModalVisible, planDetails}) => {
         onRequestClose={() => {
           setModalVisible(!modalVisible);
         }}>
-        <TouchableWithoutFeedback
-          onPress={() => setModalVisible(!modalVisible)}>
-          <View style={styles.modalOverlay} />
-        </TouchableWithoutFeedback>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Pressable
-              style={{alignItems: 'flex-end'}}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <EntypoIcon name="cross" color="white" size={30} />
-            </Pressable>
-            <View style={styles.iconContainer}>
-              <View style={styles.icon}>
-                {planDetails?.type === 'Premium' && (
-                  <FontAwesomeIcon name="diamond" color="white" size={30} />
-                )}
-                {planDetails?.type === 'Basic' && (
-                  <Icon name="paper-plane" color="white" size={30} />
-                )}
-                {planDetails?.type === 'Standard' && (
-                  <FontAwesome5Icon name="crown" color="white" size={30} />
-                )}
+        <ScrollView>
+          <TouchableWithoutFeedback
+            onPress={() => setModalVisible(!modalVisible)}>
+            <View style={styles.modalOverlay} />
+          </TouchableWithoutFeedback>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Pressable
+                style={{alignItems: 'flex-end'}}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <EntypoIcon name="cross" color="white" size={30} />
+              </Pressable>
+              <View style={styles.iconContainer}>
+                <View style={styles.icon}>
+                  {planDetails?.type === 'Premium' && (
+                    <FontAwesomeIcon name="diamond" color="white" size={30} />
+                  )}
+                  {planDetails?.type === 'Basic' && (
+                    <Icon name="paper-plane" color="white" size={30} />
+                  )}
+                  {planDetails?.type === 'Standard' && (
+                    <FontAwesome5Icon name="crown" color="white" size={30} />
+                  )}
+                </View>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.textHeading}>{planDetails?.type}</Text>
+
+                <Text style={[styles.text, {marginBottom: 10}]}>
+                  <Text>$</Text>
+                  <Text style={styles.textHeading}>{planDetails?.price}</Text>
+
+                  <Text>/{planDetails?.duration}</Text>
+                </Text>
+              </View>
+              <View style={styles.checkbox}>
+                <CheckBox />
+                <Text style={styles.text}>Extra member benefits</Text>
+              </View>
+              <View style={styles.checkbox}>
+                <CheckBox />
+                <Text style={styles.text}>Extra member benefits</Text>
+              </View>
+              <View style={styles.checkbox}>
+                <CheckBox />
+                <Text style={styles.text}>Extra member benefits</Text>
+              </View>
+              <View style={{marginTop: 40}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsVisible(true);
+                    setModalVisible(false);
+                  }}>
+                  <Button text={'SUBSCRIBE'} />
+                </TouchableOpacity>
               </View>
             </View>
-            <View style={styles.card}>
-              <Text style={styles.textHeading}>{planDetails?.type}</Text>
-
-              <Text style={[styles.text, {marginBottom: 10}]}>
-                <Text>$</Text>
-                <Text style={styles.textHeading}>{planDetails?.price}</Text>
-
-                <Text>/{planDetails?.duration}</Text>
-              </Text>
-            </View>
-            <View style={styles.checkbox}>
-              <CheckBox />
-              <Text style={styles.text}>Extra member benefits</Text>
-            </View>
-            <View style={styles.checkbox}>
-              <CheckBox />
-              <Text style={styles.text}>Extra member benefits</Text>
-            </View>
-            <View style={styles.checkbox}>
-              <CheckBox />
-              <Text style={styles.text}>Extra member benefits</Text>
-            </View>
-            <View style={{marginTop: 40}}>
-              <TouchableOpacity
-                onPress={() => {
-                  setIsVisible(true);
-                  setModalVisible(false);
-                }}>
-                <Button text={'SUBSCRIBE'} />
-              </TouchableOpacity>
-            </View>
           </View>
-        </View>
+        </ScrollView>
       </Modal>
       <CustomModal modal={isVisible} setModal={setIsVisible} />
     </View>

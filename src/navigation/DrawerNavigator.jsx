@@ -5,7 +5,7 @@ import {
   Text,
   StyleSheet,
   View,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import {Avatar} from 'react-native-paper';
@@ -17,57 +17,57 @@ import DrawerRow from '../components/drawer-row/drawer-row';
 const DrawerNavigation = ({isVisible, setIsVisible}) => {
   const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback onPress={() => setIsVisible(false)}>
-      <Modal
-        style={styles.modal}
-        isVisible={isVisible}
-        animationIn="slideInLeft"
-        animationOut="slideOutLeft">
-        <ScrollView
-          style={styles.width}
-          contentContainerStyle={styles.scrollView}>
-          <View style={styles.header}>
+    <Modal
+      style={styles.modal}
+      isVisible={isVisible}
+      animationIn="slideInLeft"
+      animationOut="slideOutLeft">
+      <ScrollView
+        style={styles.width}
+        contentContainerStyle={styles.scrollView}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => setIsVisible(false)}>
             <Avatar.Image
               size={60}
               source={require('../assets/images/avatar.jpeg')}
             />
-            <View style={styles.col}>
-              <Text style={styles.text1}>Shawn Pope</Text>
-              <Text style={styles.text2}>@Shawn_pope</Text>
+          </TouchableOpacity>
+          <View style={styles.col}>
+            <Text style={styles.text1}>Shawn Pope</Text>
+            <Text style={styles.text2}>@Shawn_pope</Text>
+            <Text style={styles.text4}>
+              142 <Text style={styles.text3}>Following {'  '}</Text>
+              <Text style={styles.dot}> {'\u2B24'}</Text>
               <Text style={styles.text4}>
-                142 <Text style={styles.text3}>Following {'  '}</Text>
-                <Text style={styles.dot}> {'\u2B24'}</Text>
-                <Text style={styles.text4}>
-                  {'  '}
-                  17 <Text style={styles.text3}>Followers</Text>{' '}
-                </Text>
+                {'  '}
+                17 <Text style={styles.text3}>Followers</Text>{' '}
               </Text>
-            </View>
+            </Text>
           </View>
-          <View style={styles.view1}>
-            <View>
-              <DrawerRow name="user" text="My Profile" />
-              <DrawerRow name="save" text="Saved Articles" />
-              <DrawerRow
-                name="plus"
-                text="Subscription Plan"
-                onClick={() => {
-                  setIsVisible(false);
-                  navigation.navigate('Plan');
-                }}
-              />
-              <DrawerRow name="block" text="Blocked Users" />
-              <DrawerRow name="rate-review" text="Rate App" />
-              <DrawerRow name="exclamationcircleo" text="About Us" />
-              <DrawerRow name="notifications" text="Notification" />
-            </View>
-            <View>
-              <DrawerRow name="exit" text="Sign Out" />
-            </View>
+        </View>
+        <View style={styles.view1}>
+          <View>
+            <DrawerRow name="user" text="My Profile" />
+            <DrawerRow name="save" text="Saved Articles" />
+            <DrawerRow
+              name="plus"
+              text="Subscription Plan"
+              onClick={() => {
+                setIsVisible(false);
+                navigation.navigate('Plan');
+              }}
+            />
+            <DrawerRow name="block" text="Blocked Users" />
+            <DrawerRow name="rate-review" text="Rate App" />
+            <DrawerRow name="exclamationcircleo" text="About Us" />
+            <DrawerRow name="notifications" text="Notification" />
           </View>
-        </ScrollView>
-      </Modal>
-    </TouchableWithoutFeedback>
+          <View>
+            <DrawerRow name="exit" text="Sign Out" />
+          </View>
+        </View>
+      </ScrollView>
+    </Modal>
   );
 };
 

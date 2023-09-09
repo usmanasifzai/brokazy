@@ -18,7 +18,7 @@ const CardDetails = () => {
   return (
     <>
       <HeaderWithBackIcon title={'Payment'} />
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
           <View>
             <Text style={styles.cardDetails}>CARD DETAILS</Text>
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   btn: {marginTop: 50},
+  scrollView: {flexGrow: 1},
 });
 
 export default CardDetails;
