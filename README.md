@@ -4,8 +4,7 @@ The task was to complete the implementation of a Subscription Plan Screen for a 
 
 [App Demo](https://s11.gifyu.com/images/S4xSo.gif)
 
-![App Demo](https://s11.gifyu.com/images/S4xSo.gif)
-​
+<img src="./src/assets/images/brokazy.gif?raw=true" width="200px">
 
 ## Contents
 
