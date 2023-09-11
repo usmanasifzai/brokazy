@@ -1,6 +1,7 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import CustomModal from '../src/components/payment-modal/payment-modal';
+import CardDetails from '../src/screens/card-details/card-details';
 jest.useFakeTimers();
 
 describe('CustomModal component', () => {
@@ -21,13 +22,13 @@ describe('CustomModal component', () => {
     fireEvent.press(creditCardOption);
 
     expect(setModal).toHaveBeenCalledWith(false);
-    expect(navigate).toHaveBeenCalledWith('CardDetails');
+    expect(navigate).toHaveBeenCalledWith(CardDetails);
 
     const payPalOption = getByText('PayPal');
     fireEvent.press(payPalOption);
 
     expect(setModal).toHaveBeenCalledWith(false);
-    expect(navigate).toHaveBeenCalledWith('CardDetails');
+    expect(navigate).toHaveBeenCalledWith(CardDetails);
 
     const cancelButton = getByText('Cancel');
     fireEvent.press(cancelButton);

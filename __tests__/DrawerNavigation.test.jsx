@@ -1,6 +1,7 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import DrawerNavigation from '../src/navigation/DrawerNavigator';
+import {PLAN} from '../src/constants/navigation';
 jest.useFakeTimers();
 
 const mockNavigation = {
@@ -41,9 +42,7 @@ test('Navigates to the Plan screen when "Subscription Plan" is clicked', () => {
     />,
   );
 
-  // Click "Subscription Plan"
   fireEvent.press(getByText('Subscription Plan'));
 
-  // Verify that navigation.navigate was called with the correct screen name
-  expect(mockNavigation.navigate).toHaveBeenCalledWith('Plan');
+  expect(mockNavigation.navigate).toHaveBeenCalledWith(PLAN);
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import CardDetails from '../src/screens/card-details/card-details';
 import SuccessModal from '../src/components/success-modal/success-modal';
+import Home from '../src/screens/Home/Home';
 jest.useFakeTimers();
 
 const mockNavigation = {
@@ -34,15 +35,15 @@ describe('CardDetails component', () => {
     );
 
     expect(queryByText('SUCCESS!')).toBeNull();
-    fireEvent.press(getByTestId('CONTINUE'));
+    fireEvent.press(getByTestId('continue'));
 
-    const btn = getByTestId('BUTTON');
+    const btn = getByTestId('button');
     expect(btn).toBeTruthy();
 
     setIsModalVisible();
 
     expect(queryByText('SUCCESS!')).toBeTruthy();
     fireEvent.press(btn);
-    expect(mockNavigation.navigate).toHaveBeenCalledWith('Home');
+    expect(mockNavigation.navigate).toHaveBeenCalledWith(Home);
   });
 });

@@ -30,7 +30,7 @@ const CardDetails = ({navigation}) => {
           <TouchableOpacity
             style={styles.btn}
             onPress={() => setIsModalVisible(!modalVisible)}
-            testID="CONTINUE">
+            testID="continue">
             <Button text={'CONTINUE'} />
           </TouchableOpacity>
         </View>

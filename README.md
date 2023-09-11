@@ -1,79 +1,116 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## Brokazy _(React Native Test Project)_
 
-# Getting Started
+The task was to complete the implementation of a Subscription Plan Screen for a mobile application. The goal was to create a user-friendly interface that allows users to select and subscribe to different plans offered by a fictional service provider. We were provided with a basic project structure, wireframes, and some code stubs to get you started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+![App Demo](https://s11.gifyu.com/images/S4xSo.gif)
+​
 
-## Step 1: Start the Metro Server
+## Contents
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- [Requirements](#-requirements)
+- [Assumptions](#-assumptions)
+- [How to Install dependencies and run](#-how-to-install-dependencies-and-run)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Requirements
 
-```bash
-# using npm
-npm start
+- Implement the provided wireframes and design mockups for the Subscription Plan Screen. Ensure that the design is responsive and looks good on different screen sizes.
+- Populate the subscription plans dynamically from a JSON file. Create a sample JSON file with plan details like name, price, features, and duration. Display these plans on the screen using a scrollable list.
+- Allow users to select a subscription plan by tapping on it. Selected plans should be visually distinguishable from unselected plans (e.g., change the background color or add a checkmark). Implement the logic to allow only one plan to be selected at a time. If a user selects a new plan, it should automatically deselect the previously selected one.
+- Display the plan's name, price, features, duration, and any other relevant information. Implement a modal that displays detailed information about the selected plan when the user taps on it. Include a "Subscribe" button in the modal.
+- When the user taps the "Subscribe" button in the modal, displays a confirmation message. You don't need to implement the actual subscription process; just show a success message.
+- Add appropriate navigation between the Subscription Plan Screen and other parts of the app (e.g., a Home screen or a Profile screen). Use React Navigation or a similar library for navigation.
 
-# OR using Yarn
-yarn start
+##### Assumptions
+
+In addition to the outlined requirements, the project assumes the following:
+
+- No code stub was provided with this assignment so we assume that we would need to create a new react native repo from scratch.
+
+- Activate/Update Plan: It is assumed that there is an option on the Subscription Plan Screen to "Activate/Update Plan," which, when clicked, navigates to the "Card Details" screen as was mentioned in the wireframe.
+
+- Modal for Subscription Plan Information: Clicking on any subscription plan opens a modal that displays information related to that plan with a subscribe button as mentioned in the requirements.
+
+## Prerequisites
+
+- Ruby (ruby 3.2.1)
+- Node js (version 18 or higher)
+- Setup the development environment first.
+- [React Native CLI environment setup](https://reactnative.dev/docs/environment-setup)
+
+## How to install dependencies and run
+
+- Clone the repository:
+
+```
+  git clone https://link-to-project
 ```
 
-## Step 2: Start your Application
+- Go to the project directory:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```
+ cd brokazy
+```
 
-### For Android
+- Install dependencies:
 
-```bash
-# using npm
-npm run android
+```
+  yarn install
+```
 
-# OR using Yarn
+- Go to the ios directory:
+  ```
+  cd ios && pod install && cd ..
+  ```
+
+```
+
+- Run on Android:
+```
+
 yarn android
+
 ```
 
-### For iOS
+- Run on Ios:
+```
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
 yarn ios
+
+````
+
+## Setup Guide for Android
+
+Once the android development environment setup is completed
+- Run ```yarn android```
+
+Or you can install and setup android studio.
+Then Follow these steps:
+- Open project > android folder in android studio
+- Let android studio build all the gradle files and compile the project for android environment
+- Connect your android device or select an android emulator and start the project
+- Android studio will compile, build, and install the app
+
+
+## Setup Guide for iOS
+
+[You need a MAC to run this application on iOS](ttps://reactnative.dev/docs/environment-setup)
+Once the iOS development environment setup is completed
+
+- Run ```yarn ios```
+
+Or you can install and setup XCode on MAC.
+Then Follow these steps:
+- Open project > ios > brokazy.xcworkspace in XCode
+- Connect your iOS device or select an iOS emulator and start the project
+- XCode will compile, build, and install the app
+
+## Testing
+
+We have use jest and testing-library/react-native to write the test cases and to run the test cases
+````
+
+yarn test
+
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```

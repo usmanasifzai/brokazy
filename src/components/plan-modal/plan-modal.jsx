@@ -92,7 +92,7 @@ const PlanModal = ({
               </View>
               <View style={{marginTop: 40}}>
                 <TouchableOpacity
-                  testID="SUBSCRIBE"
+                  testID="subscribe"
                   onPress={() => {
                     setIsVisible(true);
                     setModalVisible(false);

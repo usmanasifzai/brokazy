@@ -12,6 +12,7 @@ import {Avatar} from 'react-native-paper';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 import DrawerRow from '../components/drawer-row/drawer-row';
+import {PLAN} from '../constants/navigation';
 
 const DrawerNavigation = ({isVisible, setIsVisible, navigation}) => {
   return (
@@ -53,7 +54,7 @@ const DrawerNavigation = ({isVisible, setIsVisible, navigation}) => {
               text="Subscription Plan"
               onClick={() => {
                 setIsVisible(false);
-                navigation.navigate('Plan');
+                navigation.navigate(PLAN);
               }}
             />
             <DrawerRow name="block" text="Blocked Users" />

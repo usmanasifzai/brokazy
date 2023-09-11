@@ -42,7 +42,7 @@ describe('Plans component', () => {
     fireEvent.press(planCard);
     setIsVisible();
 
-    const subBtn = getByTestId('SUBSCRIBE');
+    const subBtn = getByTestId('subscribe');
     fireEvent.press(subBtn);
 
     fireEvent.press(activateUpdateButton);
