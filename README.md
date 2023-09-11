@@ -111,3 +111,7 @@ We have use jest and testing-library/react-native to write the test cases and to
 ```
 yarn test
 ```
+
+## Download APK
+
+You can download APK from [here](https://drive.google.com/file/d/13G8tPQB_ySkDE4j6HHCV8wKjNAvd5DtT/view?usp=sharing)
