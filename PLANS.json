@@ -2,21 +2,27 @@
   "plans": [
     {
       "id": 0,
-      "type": "Basic",
+      "name": "Basic",
       "price": "112",
-      "duration": "6 months"
+      "duration": "6 months",
+      "icon": "paper-plane",
+      "iconSource": "Ionicons"
     },
     {
       "id": 1,
-      "type": "Standard",
+      "name": "Standard",
       "price": "112",
-      "duration": "6 months"
+      "duration": "6 months",
+      "icon": "crown",
+      "iconSource": "FontAwesome5Icon"
     },
     {
       "id": 2,
-      "type": "Premium",
+      "name": "Premium",
       "price": "112",
-      "duration": "6 months"
+      "duration": "6 months",
+      "icon": "diamond",
+      "iconSource": "FontAwesomeIcon"
     }
   ]
 }

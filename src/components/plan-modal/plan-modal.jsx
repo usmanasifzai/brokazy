@@ -9,15 +9,16 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {RFValue} from 'react-native-responsive-fontsize';
 
+import {RFValue} from 'react-native-responsive-fontsize';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-import CheckBox from '../checkbox/checkbox';
+
 import Button from '../button/button';
 import CustomModal from '../payment-modal/payment-modal';
+import CheckBoxWithText from '../check-box-with-text/check-box-with-text';
 
 const PlanModal = ({
   modalVisible,
@@ -26,6 +27,15 @@ const PlanModal = ({
   navigation,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const IconComponent =
+    planDetails?.iconSource === 'FontAwesome5Icon'
+      ? FontAwesome5Icon
+      : planDetails?.iconSource === 'FontAwesomeIcon'
+      ? FontAwesomeIcon
+      : planDetails?.iconSource === 'Ionicons'
+      ? Ionicons
+      : null;
 
   return (
     <View style={styles.centeredView}>
@@ -57,19 +67,15 @@ const PlanModal = ({
               </Pressable>
               <View style={styles.iconContainer}>
                 <View style={styles.icon}>
-                  {planDetails?.type === 'Premium' && (
-                    <FontAwesomeIcon name="diamond" color="white" size={30} />
-                  )}
-                  {planDetails?.type === 'Basic' && (
-                    <Icon name="paper-plane" color="white" size={30} />
-                  )}
-                  {planDetails?.type === 'Standard' && (
-                    <FontAwesome5Icon name="crown" color="white" size={30} />
-                  )}
+                  <IconComponent
+                    name={planDetails?.icon}
+                    color="white"
+                    size={30}
+                  />
                 </View>
               </View>
               <View style={styles.card}>
-                <Text style={styles.textHeading}>{planDetails?.type}</Text>
+                <Text style={styles.textHeading}>{planDetails?.name}</Text>
 
                 <Text style={[styles.text, {marginBottom: 10}]}>
                   <Text>$</Text>
@@ -78,17 +84,10 @@ const PlanModal = ({
                   <Text>/{planDetails?.duration}</Text>
                 </Text>
               </View>
-              <View style={styles.checkbox}>
-                <CheckBox />
-                <Text style={styles.text}>Extra member benefits</Text>
-              </View>
-              <View style={styles.checkbox}>
-                <CheckBox />
-                <Text style={styles.text}>Extra member benefits</Text>
-              </View>
-              <View style={styles.checkbox}>
-                <CheckBox />
-                <Text style={styles.text}>Extra member benefits</Text>
+              <View style={styles.center}>
+                <CheckBoxWithText />
+                <CheckBoxWithText />
+                <CheckBoxWithText />
               </View>
               <View style={{marginTop: 40}}>
                 <TouchableOpacity
@@ -182,7 +181,6 @@ const styles = StyleSheet.create({
     fontSize: RFValue(20),
     marginBottom: 10,
   },
-  checkbox: {flexDirection: 'row', marginTop: 10, justifyContent: 'center'},
   modalOverlay: {
     position: 'absolute',
     top: 0,
@@ -192,6 +190,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   scrollView: {flexGrow: 1},
+  center: {alignItems: 'center'},
 });
 
 export default PlanModal;

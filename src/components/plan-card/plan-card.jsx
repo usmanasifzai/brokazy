@@ -1,13 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
-import CheckBox from '../checkbox/checkbox';
+import CheckBoxWithText from '../check-box-with-text/check-box-with-text';
 
 export default function PlanCard({plan, index, activeTextBox}) {
+  const IconComponent =
+    plan?.iconSource === 'FontAwesome5Icon'
+      ? FontAwesome5Icon
+      : plan?.iconSource === 'FontAwesomeIcon'
+      ? FontAwesomeIcon
+      : plan?.iconSource === 'Ionicons'
+      ? Ionicons
+      : null;
+
   return (
     <View
       style={
@@ -16,38 +25,21 @@ export default function PlanCard({plan, index, activeTextBox}) {
           : styles.container
       }>
       <View style={styles.card}>
-        <Text style={styles.textHeading}>{plan.type}</Text>
+        <Text style={styles.textHeading}>{plan?.name}</Text>
 
         <Text style={styles.text}>
           <Text>$</Text>
-          <Text style={styles.textHeading}>{plan.price}</Text>
+          <Text style={styles.textHeading}>{plan?.price}</Text>
 
-          <Text>/{plan.duration}</Text>
+          <Text>/{plan?.duration}</Text>
         </Text>
       </View>
-      <View style={styles.checkbox}>
-        <CheckBox />
-        <Text style={styles.text}>Extra member benefits</Text>
-      </View>
-      <View style={styles.checkbox}>
-        <CheckBox />
-        <Text style={styles.text}>Extra member benefits</Text>
-      </View>
-      <View style={styles.checkbox}>
-        <CheckBox />
-        <Text style={styles.text}>Extra member benefits</Text>
-      </View>
+      <CheckBoxWithText />
+      <CheckBoxWithText />
+      <CheckBoxWithText />
       <View style={styles.iconContainer}>
         <View style={styles.icon}>
-          {plan.type === 'Premium' && (
-            <FontAwesomeIcon name="diamond" color="white" size={30} />
-          )}
-          {plan.type === 'Basic' && (
-            <Icon name="paper-plane" color="white" size={30} />
-          )}
-          {plan.type === 'Standard' && (
-            <FontAwesome5Icon name="crown" color="white" size={30} />
-          )}
+          <IconComponent name={plan?.icon} color="white" size={30} />
         </View>
       </View>
     </View>
