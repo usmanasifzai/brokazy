@@ -1,21 +1,17 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 
+import {commonStyles} from '../../../styles';
 import CheckBox from '../checkbox/checkbox';
 
-const CheckBoxWithText = (style1 = {}) => (
-  <View style={[styles.checkbox, style1]}>
-    <CheckBox />
-    <Text style={styles.text}>Extra member benefits</Text>
-  </View>
-);
+const CheckBoxWithText = (style1 = {}) => {
+  const commonStyle = commonStyles();
+  return (
+    <View style={[commonStyle.checkbox, style1]}>
+      <CheckBox />
+      <Text style={commonStyle.text}>Extra member benefits</Text>
+    </View>
+  );
+};
 
 export default CheckBoxWithText;
-
-const styles = StyleSheet.create({
-  text: {
-    color: '#fff',
-  },
-  checkbox: {flexDirection: 'row', marginTop: 10},
-});

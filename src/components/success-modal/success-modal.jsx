@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
+import {View, Text, Modal, TouchableOpacity} from 'react-native';
 import Lottie from 'lottie-react-native';
 import Button from '../button/button';
 import Home from '../../screens/Home/Home';
 
+import {makeStyles} from './styles';
+
 export default function SuccessModal({modalVisible, closeModal, navigation}) {
+  const styles = makeStyles();
   return (
     <View style={styles.container}>
       <Modal
@@ -37,7 +39,7 @@ export default function SuccessModal({modalVisible, closeModal, navigation}) {
               Congratulation, your payment received
             </Text>
             <TouchableOpacity
-              style={{width: '100%'}}
+              style={styles.w100}
               onPress={() => {
                 closeModal(false);
                 navigation.navigate(Home);
@@ -51,46 +53,3 @@ export default function SuccessModal({modalVisible, closeModal, navigation}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContainer: {
-    flex: 1,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    width: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10,
-    elevation: 5,
-  },
-  title: {
-    color: 'black',
-    fontSize: RFValue(15),
-    fontWeight: '700',
-  },
-  lottie: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 100,
-  },
-  img: {width: 100, height: 100},
-  text: {
-    fontSize: RFValue(14),
-    color: 'black',
-  },
-});

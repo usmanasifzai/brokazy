@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Switch, TouchableOpacity} from 'react-native';
+import {View, Text, Switch, TouchableOpacity} from 'react-native';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import {makeStyles} from './styles';
+
 const DrawerRow = ({name, text, onClick = () => {}}) => {
+  const styles = makeStyles();
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -42,23 +45,5 @@ const DrawerRow = ({name, text, onClick = () => {}}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  view1: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  view2: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  text1: {
-    color: 'white',
-    marginLeft: 20,
-  },
-});
 
 export default DrawerRow;

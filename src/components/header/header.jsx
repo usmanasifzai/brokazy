@@ -1,10 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import {Avatar} from 'react-native-paper';
-import {RFValue} from 'react-native-responsive-fontsize';
+import {makeStyles} from './styles';
+import {commonStyles} from '../../../styles';
 
 const Header = ({setIsVisible, isVisible}) => {
+  const commonStyle = commonStyles();
+  const styles = makeStyles();
   return (
     <View style={styles.view1}>
       <TouchableOpacity onPress={() => setIsVisible(!isVisible)}>
@@ -21,29 +24,11 @@ const Header = ({setIsVisible, isVisible}) => {
         searchIcon={{size: 24}}
         placeholder="Search"
       />
-      <View style={styles.center}>
+      <View style={commonStyle.center}>
         <Text style={styles.text}>Brokazy</Text>
       </View>
     </View>
   );
 };
-const styles = StyleSheet.create({
-  view1: {flexDirection: 'row', backgroundColor: '#000', alignItems: 'center'},
-  containerStyle: {flex: 3, backgroundColor: '#000'},
-  inputContainerStyle: {backgroundColor: '#fff'},
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  text: {
-    fontSize: RFValue(15),
-    fontWeight: '700',
-    color: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Header;

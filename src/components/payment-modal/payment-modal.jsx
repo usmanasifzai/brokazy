@@ -4,14 +4,13 @@ import {
   Text,
   View,
   Dimensions,
-  StyleSheet,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Platform,
 } from 'react-native';
 import CreditCardIcon from 'react-native-vector-icons/AntDesign';
 import PayPalIcon from 'react-native-vector-icons/FontAwesome';
 import CardDetails from '../../screens/card-details/card-details';
+import {makeStyles} from './styles';
 
 const isPortrait = () => {
   const dim = Dimensions.get('screen');
@@ -19,6 +18,7 @@ const isPortrait = () => {
 };
 
 function CustomModal({modal, setModal, navigation}) {
+  const styles = makeStyles(isPortrait);
   return (
     <Modal
       onRequestClose={() => setModal(false)}
@@ -74,64 +74,5 @@ function CustomModal({modal, setModal, navigation}) {
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    bottom: 0,
-    position: 'absolute',
-    width: '100%',
-
-    backgroundColor: 'transparent',
-
-    height: isPortrait()
-      ? Dimensions.get('window').height * 0.35
-      : Dimensions.get('window').height * 0.6,
-    maxHeight: isPortrait()
-      ? Dimensions.get('window').height * 0.35
-      : Dimensions.get('window').height * 0.6,
-    shadowOffset: {
-      height: 5,
-      width: 5,
-    },
-    shadowOpacity: 10.22,
-    shadowRadius: 10.22,
-    elevation: 10,
-    padding: 20,
-  },
-  screenContainer: {flex: 1, backgroundColor: '#00000AA'},
-  div1: {
-    backgroundColor: 'black',
-    borderRadius: 10,
-  },
-  div2: {
-    backgroundColor: 'black',
-    borderRadius: 10,
-    marginTop: 20,
-  },
-  innerView: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 20,
-  },
-  center: {
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textColor: {
-    color: '#fff',
-  },
-  paymentText: {color: '#fff', marginLeft: 10},
-  creditCard: {borderBottomWidth: 1, borderBottomColor: '#fff'},
-  modalOverlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-});
 
 export default CustomModal;

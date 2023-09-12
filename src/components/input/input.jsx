@@ -1,7 +1,9 @@
 import React from 'react';
-import {TextInput, StyleSheet} from 'react-native';
+import {TextInput} from 'react-native';
+import {makeStyles} from './styles';
 
 export default function CustomTextInput({placeholder}) {
+  const styles = makeStyles();
   return (
     <TextInput
       style={styles.input}
@@ -10,12 +12,3 @@ export default function CustomTextInput({placeholder}) {
     />
   );
 }
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    borderBottomWidth: 1,
-    borderColor: 'gray',
-    color: '#fff',
-    marginTop: 20,
-  },
-});

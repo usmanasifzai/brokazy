@@ -1,24 +1,14 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, Text} from 'react-native';
+import {commonStyles} from '../../../styles';
+import {makeStyles} from './styles';
 
 export default function Button({text}) {
+  const commonStyle = commonStyles();
+  const styles = makeStyles();
   return (
     <View style={styles.btn}>
-      <Text style={styles.text}>{text}</Text>
+      <Text style={commonStyle.text}>{text}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  btn: {
-    margin: 10,
-    height: 50,
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00b4b0',
-  },
-  text: {
-    color: '#fff',
-  },
-});
