@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import CreditCardIcon from 'react-native-vector-icons/AntDesign';
 import PayPalIcon from 'react-native-vector-icons/FontAwesome';
-import CardDetails from '../../screens/card-details/card-details';
+import {CARDDETAILS} from '../../constants/navigation';
 import {makeStyles} from './styles';
 
 const isPortrait = () => {
@@ -41,7 +41,7 @@ function CustomModal({modal, setModal, navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setModal(!modal);
-                navigation.navigate(CardDetails);
+                navigation.navigate(CARDDETAILS);
               }}
               style={styles.creditCard}>
               <View style={styles.innerView}>
@@ -52,7 +52,7 @@ function CustomModal({modal, setModal, navigation}) {
             <TouchableOpacity
               onPress={() => {
                 setModal(!modal);
-                navigation.navigate(CardDetails);
+                navigation.navigate(CARDDETAILS);
               }}>
               <View style={styles.innerView}>
                 <PayPalIcon name="cc-paypal" size={20} color="white" />

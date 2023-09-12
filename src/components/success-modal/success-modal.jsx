@@ -2,7 +2,8 @@ import React from 'react';
 import {View, Text, Modal, TouchableOpacity} from 'react-native';
 import Lottie from 'lottie-react-native';
 import Button from '../button/button';
-import Home from '../../screens/Home/Home';
+
+import {HOME} from '../../constants/navigation';
 
 import {makeStyles} from './styles';
 
@@ -42,7 +43,7 @@ export default function SuccessModal({modalVisible, closeModal, navigation}) {
               style={styles.w100}
               onPress={() => {
                 closeModal(false);
-                navigation.navigate(Home);
+                navigation.navigate(HOME);
               }}
               testID="button">
               <Button text={'CONTINUE'} />
